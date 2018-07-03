@@ -5,9 +5,9 @@ module Fastlane
     class CrashlyticsHelper
       class << self
         def discover_default_crashlytics_path
-          path = Dir["./Pods/iOS/Crashlytics/Crashlytics.framework"].last || Dir["./**/Crashlytics.framework"].last
+          path = Dir["./Pods/iOS/Crashlytics"].last || Dir["./**"].last
           unless path
-            UI.user_error!("Couldn't find Crashlytics.framework in current directory. Make sure to add the 'Crashlytics' pod to your 'Podfile' and run `pod update`")
+            UI.user_error!("Couldn't find Crashlytics in current directory. Make sure to add the 'Crashlytics' pod to your 'Podfile' and run `pod update`")
           end
           return path
         end
